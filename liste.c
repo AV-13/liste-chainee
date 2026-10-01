@@ -61,3 +61,15 @@ void liste_liberer(Maillon *tete)
         tete = suivant;
     }
 }
+
+bool liste_maximum(const Maillon *tete, int *resultat)
+{
+    if (tete == NULL) return false;    /* liste vide */
+
+    int max = tete->valeur;            /* le premier element */
+    for (const Maillon *m = tete->suivant; m != NULL; m = m->suivant)
+        if (m->valeur > max) max = m->valeur;
+
+    *resultat = max;
+    return true;
+}
