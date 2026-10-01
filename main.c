@@ -8,10 +8,18 @@ int main(void)
 
     printf("liste     : ");
     liste_afficher(liste);
+    printf("blocs     : %d\n", liste_blocs_en_circulation());
     printf("longueur  : %d\n", liste_longueur(liste));
     printf("contient 30 : %s\n", liste_contient(liste, 30) ? "oui" : "non");
 
+    Maillon *seconde = NULL;
+    for (int i = 1; i <= 3; i++) seconde = liste_inserer(seconde, i);
+    printf("seconde   : ");
+    liste_afficher(seconde);
+
     liste_liberer(liste);
+    liste_liberer(seconde);
     printf("liberee\n");
+    printf("blocs     : %d\n", liste_blocs_en_circulation());
     return 0;
 }
